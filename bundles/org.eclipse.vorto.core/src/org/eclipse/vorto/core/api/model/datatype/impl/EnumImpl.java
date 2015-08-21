@@ -4,6 +4,7 @@ package org.eclipse.vorto.core.api.model.datatype.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -25,6 +27,7 @@ import org.eclipse.vorto.core.api.model.datatype.EnumLiteral;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.vorto.core.api.model.datatype.impl.EnumImpl#getEnums <em>Enums</em>}</li>
+ *   <li>{@link org.eclipse.vorto.core.api.model.datatype.impl.EnumImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +43,25 @@ public class EnumImpl extends TypeImpl implements org.eclipse.vorto.core.api.mod
 	 * @ordered
 	 */
 	protected EList<EnumLiteral> enums;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,6 +99,27 @@ public class EnumImpl extends TypeImpl implements org.eclipse.vorto.core.api.mod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypePackage.ENUM__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -96,6 +139,8 @@ public class EnumImpl extends TypeImpl implements org.eclipse.vorto.core.api.mod
 		switch (featureID) {
 			case DatatypePackage.ENUM__ENUMS:
 				return getEnums();
+			case DatatypePackage.ENUM__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,6 +158,9 @@ public class EnumImpl extends TypeImpl implements org.eclipse.vorto.core.api.mod
 				getEnums().clear();
 				getEnums().addAll((Collection<? extends EnumLiteral>)newValue);
 				return;
+			case DatatypePackage.ENUM__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -128,6 +176,9 @@ public class EnumImpl extends TypeImpl implements org.eclipse.vorto.core.api.mod
 			case DatatypePackage.ENUM__ENUMS:
 				getEnums().clear();
 				return;
+			case DatatypePackage.ENUM__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -142,8 +193,26 @@ public class EnumImpl extends TypeImpl implements org.eclipse.vorto.core.api.mod
 		switch (featureID) {
 			case DatatypePackage.ENUM__ENUMS:
 				return enums != null && !enums.isEmpty();
+			case DatatypePackage.ENUM__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (description: ");
+		result.append(description);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EnumImpl

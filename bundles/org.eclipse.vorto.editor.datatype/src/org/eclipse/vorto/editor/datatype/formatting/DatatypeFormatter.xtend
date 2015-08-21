@@ -50,7 +50,7 @@ class DatatypeFormatter extends AbstractDeclarativeFormatter {
 		//Properties
 		c.setLinewrap(1).before(f.findKeywords("mandatory").get(0))
 		c.setLinewrap(1).before(f.findKeywords("optional").get(0))
-		c.setLinewrap(1).before(f.enumLiteralAccess.nameAssignment)
+		c.setLinewrap(1).before(f.enumLiteralAccess.nameAssignment_0)
 		
 		//Block Elements
 		findKeywordPairs("{","}").forEach[
@@ -73,7 +73,6 @@ class DatatypeFormatter extends AbstractDeclarativeFormatter {
 		//Constraint Parameters
 		c.setNoSpace().before(f.propertyAccess.commaKeyword_5_2_0)
 		c.setNoSpace().after(f.propertyAccess.commaKeyword_5_2_0)	
-		
-		c.setNoSpace().before(f.enumAccess.commaKeyword_8_1_0)
+		c.setNoSpace().before(f.enumAccess.commaKeyword_9_1_0)
 	}
 }

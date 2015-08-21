@@ -45,7 +45,7 @@ class FunctionblockFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(1).after(f.configurationAccess.propertiesAssignment_3)
 		c.setLinewrap(1).after(f.statusAccess.propertiesAssignment_3)
 		c.setLinewrap(1).after(f.faultAccess.propertiesAssignment_3)
-		c.setLinewrap(1).after(f.eventAccess.propertiesAssignment_2)
+		c.setLinewrap(1).after(f.eventAccess.propertiesAssignment_3)
 		c.setLinewrap(1).before(f.findKeywords("mandatory").get(0))
 		c.setLinewrap(1).before(f.findKeywords("optional").get(0))
 		

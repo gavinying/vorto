@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.vorto.core.api.model.datatype.Entity#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link org.eclipse.vorto.core.api.model.datatype.Entity#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.vorto.core.api.model.datatype.Entity#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,5 +64,31 @@ public interface Entity extends Type {
 	 * @generated
 	 */
 	EList<Property> getProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.eclipse.vorto.core.api.model.datatype.DatatypePackage#getEntity_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.vorto.core.api.model.datatype.Entity#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 } // Entity

@@ -30,6 +30,7 @@ import org.eclipse.vorto.core.api.model.datatype.Property;
  * <ul>
  *   <li>{@link org.eclipse.vorto.core.api.model.datatype.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link org.eclipse.vorto.core.api.model.datatype.impl.EntityImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.vorto.core.api.model.datatype.impl.EntityImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,6 +56,26 @@ public class EntityImpl extends TypeImpl implements Entity {
 	 * @ordered
 	 */
 	protected EList<Property> properties;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,6 +151,27 @@ public class EntityImpl extends TypeImpl implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypePackage.ENTITY__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -152,6 +194,8 @@ public class EntityImpl extends TypeImpl implements Entity {
 				return basicGetSuperType();
 			case DatatypePackage.ENTITY__PROPERTIES:
 				return getProperties();
+			case DatatypePackage.ENTITY__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +216,9 @@ public class EntityImpl extends TypeImpl implements Entity {
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
+			case DatatypePackage.ENTITY__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -190,6 +237,9 @@ public class EntityImpl extends TypeImpl implements Entity {
 			case DatatypePackage.ENTITY__PROPERTIES:
 				getProperties().clear();
 				return;
+			case DatatypePackage.ENTITY__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,8 +256,26 @@ public class EntityImpl extends TypeImpl implements Entity {
 				return superType != null;
 			case DatatypePackage.ENTITY__PROPERTIES:
 				return properties != null && !properties.isEmpty();
+			case DatatypePackage.ENTITY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (description: ");
+		result.append(description);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EntityImpl

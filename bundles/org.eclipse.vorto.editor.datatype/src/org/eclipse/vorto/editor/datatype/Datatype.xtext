@@ -38,7 +38,7 @@ Entity:
    'namespace' namespace = QualifiedName
    'version' version = VERSION
    (references += ModelReference)*	
-  'entity' name = ID ('extends' superType = [Entity|QualifiedName])? '{'
+  'entity' name = ID ('extends' superType = [Entity|QualifiedName])? (description=STRING) '{'
   	 (properties += Property)*
    '}'
 ;
@@ -47,13 +47,13 @@ Enum:
    'namespace' namespace = QualifiedName
    'version' version = VERSION
    (references += ModelReference)*	
-	'enum' name = ID '{'
+	'enum' name = ID (description=STRING)? '{'
 		( enums += EnumLiteral (',' enums += EnumLiteral)* )?
 	'}'
 ;
 
 EnumLiteral:
-	name = ID
+	name = ID (description=STRING)?
 ;
 
 Property:

@@ -217,6 +217,15 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEntity_Description() {
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -379,6 +388,15 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEnum_Description() {
+		return (EAttribute)enumEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnumLiteral() {
 		return enumLiteralEClass;
 	}
@@ -390,6 +408,15 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 	 */
 	public EAttribute getEnumLiteral_Name() {
 		return (EAttribute)enumLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEnumLiteral_Description() {
+		return (EAttribute)enumLiteralEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -459,6 +486,7 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 		entityEClass = createEClass(ENTITY);
 		createEReference(entityEClass, ENTITY__SUPER_TYPE);
 		createEReference(entityEClass, ENTITY__PROPERTIES);
+		createEAttribute(entityEClass, ENTITY__DESCRIPTION);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__PRESENCE);
@@ -483,9 +511,11 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 
 		enumEClass = createEClass(ENUM);
 		createEReference(enumEClass, ENUM__ENUMS);
+		createEAttribute(enumEClass, ENUM__DESCRIPTION);
 
 		enumLiteralEClass = createEClass(ENUM_LITERAL);
 		createEAttribute(enumLiteralEClass, ENUM_LITERAL__NAME);
+		createEAttribute(enumLiteralEClass, ENUM_LITERAL__DESCRIPTION);
 
 		typeEClass = createEClass(TYPE);
 
@@ -537,6 +567,7 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Properties(), this.getProperty(), null, "properties", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntity_Description(), ecorePackage.getEString(), "description", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_Presence(), this.getPresence(), null, "presence", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -561,9 +592,11 @@ public class DatatypePackageImpl extends EPackageImpl implements DatatypePackage
 
 		initEClass(enumEClass, org.eclipse.vorto.core.api.model.datatype.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnum_Enums(), this.getEnumLiteral(), null, "enums", null, 0, -1, org.eclipse.vorto.core.api.model.datatype.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnum_Description(), ecorePackage.getEString(), "description", null, 0, 1, org.eclipse.vorto.core.api.model.datatype.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumLiteralEClass, EnumLiteral.class, "EnumLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnumLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnumLiteral_Description(), ecorePackage.getEString(), "description", null, 0, 1, EnumLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

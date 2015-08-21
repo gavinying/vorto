@@ -7,6 +7,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.vorto.core.api.model.datatype.DatatypePackage;
+import org.eclipse.vorto.core.api.model.datatype.impl.DatatypePackageImpl;
+import org.eclipse.vorto.core.api.model.functionblock.FunctionblockPackage;
+import org.eclipse.vorto.core.api.model.functionblock.impl.FunctionblockPackageImpl;
+import org.eclipse.vorto.core.api.model.informationmodel.InformationModelPackage;
+import org.eclipse.vorto.core.api.model.informationmodel.impl.InformationModelPackageImpl;
 import org.eclipse.vorto.core.api.model.model.Model;
 import org.eclipse.vorto.core.api.model.model.ModelFactory;
 import org.eclipse.vorto.core.api.model.model.ModelPackage;
@@ -79,11 +85,19 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		FunctionblockPackage.eINSTANCE.eClass();
+
+		// Obtain or create and register interdependencies
+		InformationModelPackageImpl theInformationModelPackage = (InformationModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(InformationModelPackage.eNS_URI) instanceof InformationModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(InformationModelPackage.eNS_URI) : InformationModelPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
+		theInformationModelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModelPackage.initializePackageContents();
+		theInformationModelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModelPackage.freeze();
@@ -234,7 +248,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Add supertypes to classes
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModel_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

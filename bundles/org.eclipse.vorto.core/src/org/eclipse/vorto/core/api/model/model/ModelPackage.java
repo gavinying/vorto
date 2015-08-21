@@ -111,15 +111,6 @@ public interface ModelPackage extends EPackage {
 	int MODEL_FEATURE_COUNT = 4;
 
 	/**
-	 * The number of operations of the '<em>Model</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.vorto.core.api.model.model.impl.ModelReferenceImpl <em>Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,16 +146,6 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODEL_REFERENCE_FEATURE_COUNT = 2;
-
-
-	/**
-	 * The number of operations of the '<em>Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_REFERENCE_OPERATION_COUNT = 0;
 
 
 	/**
