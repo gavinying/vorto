@@ -5,7 +5,8 @@ Bundle-Vendor: Eclipse.org/Vorto
 Bundle-Version: 0.4.0.qualifier
 Bundle-SymbolicName: org.eclipse.vorto.core.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.vorto.core
+Require-Bundle: org.eclipse.vorto.core,
+ org.eclipse.vorto.core.ui
 Import-Package: org.apache.log4j,
  org.hamcrest.core,
  org.junit;version="4.5.0",
@@ -14,5 +15,5 @@ Import-Package: org.apache.log4j,
  org.junit.runner.notification;version="4.5.0",
  org.junit.runners;version="4.5.0",
  org.junit.runners.model;version="4.5.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

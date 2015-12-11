@@ -6,6 +6,7 @@ Bundle-Version: 0.4.0.qualifier
 Bundle-Activator: org.eclipse.vorto.codegen.examples.ios.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.vorto.core,
+ org.eclipse.vorto.core.ui,
  org.eclipse.core.runtime,
  org.eclipse.vorto.codegen,
  com.google.guava,
@@ -14,5 +15,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtend.lib.macro,
  org.eclipse.emf.ecore,
  org.eclipse.core.resources
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
